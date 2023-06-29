@@ -1,3 +1,5 @@
+#Encryption and Decryption of txt file
+
 def encrypt_file(input_file, output_file, key):
     try:
         with open(input_file, 'r') as file:
@@ -41,7 +43,6 @@ def decrypt_file(input_file, output_file, key):
 
     except IOError as e:
         print("Error: Unable to decrypt file. ", str(e))
-
 
 # Main program
 def main():
