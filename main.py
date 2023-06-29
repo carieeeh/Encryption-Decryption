@@ -8,17 +8,19 @@
 # Velasquez, Loven Joy
 # Villadelgado, Janne Carol
 
+
+#Encryption Function
 def encrypt_file(input_file, output_file, key):
     try:
         # Read the input file
         with open(input_file, 'r') as file:
             plaintext = file.read()
 
-        ciphertext = ""
+        ciphertext = "" #initialization to store encrypted text
         for char in plaintext:
-            if char.isalpha():
+            if char.isalpha(): # a method to check if the character is alphabet
                 # Encrypt alphabetic characters
-                ascii_offset = ord('A') if char.isupper() else ord('a')
+                ascii_offset = ord('A') if char.isupper() else ord('a') # ord function to obtain the ASCII value
                 shifted = (ord(char) - ascii_offset + key) % 26 + ascii_offset
                 ciphertext += chr(shifted)
             else:
@@ -36,6 +38,7 @@ def encrypt_file(input_file, output_file, key):
     except IOError as e:
         print("Error: Unable to encrypt file. ", str(e))
 
+#Decryption Function
 def decrypt_file(input_file, output_file, key):
     try:
         # Read the input file
