@@ -23,8 +23,12 @@ def encrypt_file(input_file, output_file, key):
                 ascii_offset = ord('A') if char.isupper() else ord('a') # ord function to obtain the ASCII value
                 shifted = (ord(char) - ascii_offset + key) % 26 + ascii_offset
                 ciphertext += chr(shifted)
+            elif char.isnumeric():
+                # Encrypt numeric characters
+                shifted = (int(char) + key) % 10
+                ciphertext += str(shifted)
             else:
-                # Preserve non-alphabetic characters
+                # Preserve non-alphabetic and non-numeric characters
                 ciphertext += char
 
         # Write the encrypted text to the output file
@@ -52,8 +56,12 @@ def decrypt_file(input_file, output_file, key):
                 ascii_offset = ord('A') if char.isupper() else ord('a')
                 shifted = (ord(char) - ascii_offset - key) % 26 + ascii_offset
                 plaintext += chr(shifted)
+            elif char.isnumeric():
+                # Decrypt numeric characters
+                shifted = (int(char) - key) % 10
+                plaintext += str(shifted)
             else:
-                # Preserve non-alphabetic characters
+                # Preserve non-alphabetic and non-numeric characters
                 plaintext += char
 
         # Write the decrypted text to the output file
