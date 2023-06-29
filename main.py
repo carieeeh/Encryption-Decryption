@@ -1,5 +1,3 @@
-#Encryption and Decryption of txt file
-
 def encrypt_file(input_file, output_file, key):
     try:
         with open(input_file, 'r') as file:
@@ -19,6 +17,8 @@ def encrypt_file(input_file, output_file, key):
 
         print("File encrypted successfully.\n")
 
+    except FileNotFoundError:
+        print("Error: Input file not found.")
     except IOError as e:
         print("Error: Unable to encrypt file. ", str(e))
 
@@ -41,6 +41,8 @@ def decrypt_file(input_file, output_file, key):
 
         print("File decrypted successfully.\n")
 
+    except FileNotFoundError:
+        print("Error: Input file not found.")
     except IOError as e:
         print("Error: Unable to decrypt file. ", str(e))
 
@@ -58,13 +60,11 @@ def main():
             output_file = input("Enter the path for the encrypted output file: ")
             key = int(input("Enter the encryption key (an integer): "))
             encrypt_file(file_path, output_file, key)
-            print("File encrypted successfully.\n")
         elif choice == '2':  # Decrypt a file
             file_path = input("Enter the path of the file to decrypt: ")
             output_file = input("Enter the path for the decrypted output file: ")
             key = int(input("Enter the decryption key (an integer): "))
             decrypt_file(file_path, output_file, key)
-            print("File decrypted successfully.\n")
         elif choice == '3':  # Exit the program
             print("Exiting the program.")
             break
