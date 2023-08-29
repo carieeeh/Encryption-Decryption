@@ -1,13 +1,6 @@
 # Encryption and decryption of txt file
 # BSIT-3A-M Group Project
 
-# Submitted by:
-# Cabrera, Jacob Emmanuel
-# Malinay, John Loyd
-# Moises, Eisen Lois
-# Velasquez, Loven Joy
-# Villadelgado, Janne Carol
-
 
 # Encryption Function
 def encrypt_file(input_file, output_file, key):
